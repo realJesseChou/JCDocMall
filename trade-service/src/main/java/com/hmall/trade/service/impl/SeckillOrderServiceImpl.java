@@ -8,6 +8,8 @@ import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
 
+import java.time.LocalDateTime;
+
 /**
  * <p>
  * 服务实现类
@@ -33,5 +35,19 @@ public class SeckillOrderServiceImpl extends ServiceImpl<SeckillOrderMapper, Sec
         // 2.创建订单
         save(seckillOrder);
         return orderId;
+    }
+
+    @Override
+    public void markOrderPaySuccess(Long orderId) {
+        SeckillOrder order=new SeckillOrder();
+        order.setId(orderId);
+        order.setStatus(2);
+        order.setPayTime(LocalDateTime.now());
+        updateById(order);
+    }
+
+    @Override
+    public void cancelOrder(Long orderId) {
+
     }
 }

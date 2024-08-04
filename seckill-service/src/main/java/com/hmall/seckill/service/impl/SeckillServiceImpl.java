@@ -65,7 +65,7 @@ public class SeckillServiceImpl extends ServiceImpl<SeckillMapper, Item> impleme
         seckillOrderMap.put("itemId", itemId);
         seckillOrderMap.put("orderId", orderId);
         seckillOrderMap.put("userId", userId);
-        // 向消息队列发送消息， 由订单服务进行订单生成，OrderFormDTO
+        // 向消息队列发送消息， 由订单服务进行订单生成，
         rabbitTemplate.convertAndSend(
                 MQConstants.SECKILL_EXCHANGE_NAME,
                 MQConstants.SECKILL_ORDER_KEY,

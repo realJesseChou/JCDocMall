@@ -1,13 +1,21 @@
 server:
   port: 8087
 hm:
-  db:
-    host: 192.168.153.129 # 修改为你自己的虚拟机IP地址
-    pw: 123 # 修改为docker中的MySQL密码
-    port: 3307
-    database: hm-seckill
+#  db:
+#    host: 192.168.153.129 # 修改为你自己的虚拟机IP地址
+#    pw: 123 # 修改为docker中的MySQL密码
+#    port: 3307
+#    database: hm-seckill      # 这个服务应该是不操作数据库，目前
 
   swagger:
     title: 黑马商城秒杀接口管理
     desc: "黑马商城秒杀接口管理"
     package: com.hmall.seckill.controller
+
+spring:
+  rabbitmq:
+    host: 192.168.153.129
+    port: 5672
+    virtual-host: /hmall
+    username: hm
+    password: 123

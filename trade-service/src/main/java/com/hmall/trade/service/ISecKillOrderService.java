@@ -15,4 +15,7 @@ public interface ISecKillOrderService extends IService<SeckillOrder> {
 
     Long createOrder(SeckillOrder seckillOrder);
 
+    void markOrderPaySuccess(Long orderId);
+
+    void cancelOrder(Long orderId);
 }

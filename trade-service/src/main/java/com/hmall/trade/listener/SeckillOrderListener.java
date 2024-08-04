@@ -36,6 +36,7 @@ public class SeckillOrderListener {
         seckillOrder.setUserId(seckillOrderMap.get("userId"));
         seckillOrder.setStatus(1);
         seckillOrder.setCreateTime(LocalDateTime.now());
+        seckillOrder.setPaymentType(1);
 
         // 创建秒杀订单
         Long orderId = secKillOrderService.createOrder(seckillOrder);
@@ -44,7 +45,7 @@ public class SeckillOrderListener {
             return;
         }
 
-        // 发送延迟消息监听订单支付状态
+        // 发送延迟消息用于监听订单支付状态
         rabbitTemplate.convertAndSend(
                 MQConstants.DELAY_EEXCHANGE_NAME,
                 MQConstants.DELAY_ORDER_KEY,
