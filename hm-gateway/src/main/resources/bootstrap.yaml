@@ -1,0 +1,17 @@
+spring:
+  application:
+    name: gateway
+  profiles:
+    active: dev
+  cloud:
+    nacos:
+      server-addr: 192.168.153.129:8848
+      config:
+        file-extension: yaml
+        shared-configs:
+          - data-id: shared-log.yaml
+          - data-id: shared-redis.yaml
+    gateway:
+      filter:
+        request-rate-limiter:
+

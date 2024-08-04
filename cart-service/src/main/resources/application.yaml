@@ -1,0 +1,31 @@
+server:
+  port: 8082
+#  tomcat:
+#    threads:
+#      max: 50
+#    accept-count: 50
+#    max-connections: 100
+feign:
+  okhttp:
+    enabled: true
+  sentinel:
+    enabled: true
+
+spring:
+  cloud:
+    sentinel:
+      transport:
+        dashboard: localhost:8090   # sentinel 的控制台地址
+      http-method-specify: true # 是否开启 HTTP 方法匹配功能
+
+hm:
+  db:
+    host: 192.168.153.129 # 修改为你自己的虚拟机IP地址
+    pw: 123 # 修改为docker中的MySQL密码
+    port: 3307
+    database: hm-cart
+
+  swagger:
+    title: 黑马商城购物车接口管理
+    desc: "黑马商城购物车接口管理"
+    package: com.hmall.cart.controller
